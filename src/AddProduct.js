@@ -14,11 +14,17 @@ const AddProduct = () => {
   }
 
   const updatePrice = (e) => {
-    setPrice(e.target.value);
+    const newPrice = e.target.value;
+    if (newPrice === '' || new RegExp(/^[0-9\b]+$/).test(newPrice)) {
+      setPrice(Number(newPrice));
+    }
   }
 
   const updateAmount = (e) => {
-    setAmount(e.target.value);
+    const newAmount = e.target.value;
+    if (newAmount === '' || new RegExp(/^[0-9\b]+$/).test(newAmount)) {
+      setAmount(Number(newAmount));
+    }
   }
 
   const onSubmit = (e) => {
